@@ -3,19 +3,34 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D058D0E30B654D4E3F24EB2 /* Pods_OlympiaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75720A6716D4942C9B0A04D5 /* Pods_OlympiaTests.framework */; };
+		8402A3E089AF2905153CE862 /* Pods_Olympia_OlympiaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F7FBDFCE47B9AB9D1DD493 /* Pods_Olympia_OlympiaUITests.framework */; };
+		A451872D18EE3EDC2B564DCA /* Pods_Olympia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C6E739E1EA11519DA7454A /* Pods_Olympia.framework */; };
+		E01C7DBD262CC17100DFC7B8 /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7DBC262CC17100DFC7B8 /* LeaguesViewController.swift */; };
+		E01C7DBF262CC19200DFC7B8 /* LeaguesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7DBE262CC19200DFC7B8 /* LeaguesPresenter.swift */; };
+		E01C7DC1262CC1E000DFC7B8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7DC0262CC1E000DFC7B8 /* FavoritesPresenter.swift */; };
+		E01C7DC3262CC23D00DFC7B8 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C7DC2262CC23D00DFC7B8 /* FavoritesViewController.swift */; };
+		E01C7DC5262CDEAA00DFC7B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01C7DC4262CDEAA00DFC7B8 /* LaunchScreen.storyboard */; };
 		E01D45F3262C91C800B373F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D45F2262C91C800B373F3 /* AppDelegate.swift */; };
 		E01D45F5262C91C800B373F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D45F4262C91C800B373F3 /* SceneDelegate.swift */; };
-		E01D45F7262C91C800B373F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D45F6262C91C800B373F3 /* ViewController.swift */; };
 		E01D45FA262C91C800B373F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01D45F8262C91C800B373F3 /* Main.storyboard */; };
 		E01D45FD262C91C800B373F3 /* Olympia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E01D45FB262C91C800B373F3 /* Olympia.xcdatamodeld */; };
 		E01D45FF262C91CB00B373F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01D45FE262C91CB00B373F3 /* Assets.xcassets */; };
-		E01D4602262C91CB00B373F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01D4600262C91CB00B373F3 /* LaunchScreen.storyboard */; };
 		E01D460D262C91CC00B373F3 /* OlympiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D460C262C91CC00B373F3 /* OlympiaTests.swift */; };
 		E01D4618262C91CC00B373F3 /* OlympiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D4617262C91CC00B373F3 /* OlympiaUITests.swift */; };
+		E01D462A262CA13300B373F3 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D4629262CA13300B373F3 /* LocalDataSource.swift */; };
+		E01D462C262CA14900B373F3 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D462B262CA14900B373F3 /* RemoteDataSource.swift */; };
+		E01D462E262CA1A900B373F3 /* SportsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D462D262CA1A900B373F3 /* SportsRepo.swift */; };
+		E01D4643262CA83400B373F3 /* SportsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D4642262CA83400B373F3 /* SportsPresenter.swift */; };
+		E01D4645262CA8D600B373F3 /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D4644262CA8D600B373F3 /* SportsViewController.swift */; };
+		E01D4647262CA90200B373F3 /* LeagueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D4646262CA90200B373F3 /* LeagueDetailsViewController.swift */; };
+		E01D4649262CA91800B373F3 /* LeagueDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D4648262CA91800B373F3 /* LeagueDetailsPresenter.swift */; };
+		E01D464B262CA93500B373F3 /* TeamDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D464A262CA93500B373F3 /* TeamDetailsPresenter.swift */; };
+		E01D464D262CA95100B373F3 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01D464C262CA95100B373F3 /* TeamDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +51,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24D11F3F2FBE3EC996C3A9AF /* Pods-Olympia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olympia.release.xcconfig"; path = "Target Support Files/Pods-Olympia/Pods-Olympia.release.xcconfig"; sourceTree = "<group>"; };
+		27C6E739E1EA11519DA7454A /* Pods_Olympia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Olympia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		738C88A02811AC9DF08957D8 /* Pods-Olympia-OlympiaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olympia-OlympiaUITests.debug.xcconfig"; path = "Target Support Files/Pods-Olympia-OlympiaUITests/Pods-Olympia-OlympiaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		75720A6716D4942C9B0A04D5 /* Pods_OlympiaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OlympiaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81154942DF00128A2C306675 /* Pods-OlympiaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OlympiaTests.release.xcconfig"; path = "Target Support Files/Pods-OlympiaTests/Pods-OlympiaTests.release.xcconfig"; sourceTree = "<group>"; };
+		B83C908CFA596D24235AC478 /* Pods-Olympia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olympia.debug.xcconfig"; path = "Target Support Files/Pods-Olympia/Pods-Olympia.debug.xcconfig"; sourceTree = "<group>"; };
+		C9F7FBDFCE47B9AB9D1DD493 /* Pods_Olympia_OlympiaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Olympia_OlympiaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E01C7DBC262CC17100DFC7B8 /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
+		E01C7DBE262CC19200DFC7B8 /* LeaguesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesPresenter.swift; sourceTree = "<group>"; };
+		E01C7DC0262CC1E000DFC7B8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		E01C7DC2262CC23D00DFC7B8 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E01C7DC4262CDEAA00DFC7B8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E01D45EF262C91C800B373F3 /* Olympia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Olympia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01D45F2262C91C800B373F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E01D45F4262C91C800B373F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E01D45F6262C91C800B373F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E01D45F9262C91C800B373F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E01D45FC262C91C800B373F3 /* Olympia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Olympia.xcdatamodel; sourceTree = "<group>"; };
 		E01D45FE262C91CB00B373F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E01D4601262C91CB00B373F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E01D4603262C91CB00B373F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E01D4608262C91CC00B373F3 /* OlympiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OlympiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01D460C262C91CC00B373F3 /* OlympiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlympiaTests.swift; sourceTree = "<group>"; };
@@ -51,6 +76,17 @@
 		E01D4613262C91CC00B373F3 /* OlympiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OlympiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01D4617262C91CC00B373F3 /* OlympiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlympiaUITests.swift; sourceTree = "<group>"; };
 		E01D4619262C91CC00B373F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E01D4629262CA13300B373F3 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
+		E01D462B262CA14900B373F3 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		E01D462D262CA1A900B373F3 /* SportsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsRepo.swift; sourceTree = "<group>"; };
+		E01D4642262CA83400B373F3 /* SportsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsPresenter.swift; sourceTree = "<group>"; };
+		E01D4644262CA8D600B373F3 /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
+		E01D4646262CA90200B373F3 /* LeagueDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsViewController.swift; sourceTree = "<group>"; };
+		E01D4648262CA91800B373F3 /* LeagueDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsPresenter.swift; sourceTree = "<group>"; };
+		E01D464A262CA93500B373F3 /* TeamDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPresenter.swift; sourceTree = "<group>"; };
+		E01D464C262CA95100B373F3 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
+		EAEDE5232E1A98A717AA421D /* Pods-Olympia-OlympiaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olympia-OlympiaUITests.release.xcconfig"; path = "Target Support Files/Pods-Olympia-OlympiaUITests/Pods-Olympia-OlympiaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F9CA03AE348719CB818362AB /* Pods-OlympiaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OlympiaTests.debug.xcconfig"; path = "Target Support Files/Pods-OlympiaTests/Pods-OlympiaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A451872D18EE3EDC2B564DCA /* Pods_Olympia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D058D0E30B654D4E3F24EB2 /* Pods_OlympiaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +110,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8402A3E089AF2905153CE862 /* Pods_Olympia_OlympiaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BA10F1840C8C749E7120D82 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B83C908CFA596D24235AC478 /* Pods-Olympia.debug.xcconfig */,
+				24D11F3F2FBE3EC996C3A9AF /* Pods-Olympia.release.xcconfig */,
+				738C88A02811AC9DF08957D8 /* Pods-Olympia-OlympiaUITests.debug.xcconfig */,
+				EAEDE5232E1A98A717AA421D /* Pods-Olympia-OlympiaUITests.release.xcconfig */,
+				F9CA03AE348719CB818362AB /* Pods-OlympiaTests.debug.xcconfig */,
+				81154942DF00128A2C306675 /* Pods-OlympiaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8EAD02E1BAA3C659DC65EF56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27C6E739E1EA11519DA7454A /* Pods_Olympia.framework */,
+				C9F7FBDFCE47B9AB9D1DD493 /* Pods_Olympia_OlympiaUITests.framework */,
+				75720A6716D4942C9B0A04D5 /* Pods_OlympiaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E01D45E6262C91C800B373F3 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +147,8 @@
 				E01D460B262C91CC00B373F3 /* OlympiaTests */,
 				E01D4616262C91CC00B373F3 /* OlympiaUITests */,
 				E01D45F0262C91C800B373F3 /* Products */,
+				0BA10F1840C8C749E7120D82 /* Pods */,
+				8EAD02E1BAA3C659DC65EF56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,12 +165,17 @@
 		E01D45F1262C91C800B373F3 /* Olympia */ = {
 			isa = PBXGroup;
 			children = (
+				E01D4637262CA40000B373F3 /* Favorites */,
+				E01D4636262CA3E500B373F3 /* Leagues */,
+				E01D4635262CA3D800B373F3 /* Sports */,
+				E01D4634262CA3C300B373F3 /* LeagueDetails */,
+				E01D4631262CA37C00B373F3 /* TeamDetails */,
+				E01D4630262CA2F100B373F3 /* Storyboard */,
+				E01D462F262CA20600B373F3 /* Util */,
+				E01D4625262CA07100B373F3 /* Data */,
 				E01D45F2262C91C800B373F3 /* AppDelegate.swift */,
 				E01D45F4262C91C800B373F3 /* SceneDelegate.swift */,
-				E01D45F6262C91C800B373F3 /* ViewController.swift */,
-				E01D45F8262C91C800B373F3 /* Main.storyboard */,
 				E01D45FE262C91CB00B373F3 /* Assets.xcassets */,
-				E01D4600262C91CB00B373F3 /* LaunchScreen.storyboard */,
 				E01D4603262C91CB00B373F3 /* Info.plist */,
 				E01D45FB262C91C800B373F3 /* Olympia.xcdatamodeld */,
 			);
@@ -131,6 +200,181 @@
 			path = OlympiaUITests;
 			sourceTree = "<group>";
 		};
+		E01D4625262CA07100B373F3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E01D4628262CA0BD00B373F3 /* Repo */,
+				E01D4627262CA0AD00B373F3 /* Remote */,
+				E01D4626262CA09F00B373F3 /* Local */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E01D4626262CA09F00B373F3 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				E01D4629262CA13300B373F3 /* LocalDataSource.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		E01D4627262CA0AD00B373F3 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				E01D462B262CA14900B373F3 /* RemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		E01D4628262CA0BD00B373F3 /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				E01D462D262CA1A900B373F3 /* SportsRepo.swift */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		E01D462F262CA20600B373F3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E01D4630262CA2F100B373F3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E01C7DC4262CDEAA00DFC7B8 /* LaunchScreen.storyboard */,
+				E01D45F8262C91C800B373F3 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E01D4631262CA37C00B373F3 /* TeamDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E01D4641262CA7A800B373F3 /* Presenter */,
+				E01D4640262CA7A000B373F3 /* View */,
+			);
+			path = TeamDetails;
+			sourceTree = "<group>";
+		};
+		E01D4634262CA3C300B373F3 /* LeagueDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E01D463F262CA79900B373F3 /* View */,
+				E01D463E262CA74A00B373F3 /* Presenter */,
+			);
+			path = LeagueDetails;
+			sourceTree = "<group>";
+		};
+		E01D4635262CA3D800B373F3 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				E01D463D262CA73F00B373F3 /* View */,
+				E01D463C262CA73500B373F3 /* Presenter */,
+			);
+			path = Sports;
+			sourceTree = "<group>";
+		};
+		E01D4636262CA3E500B373F3 /* Leagues */ = {
+			isa = PBXGroup;
+			children = (
+				E01D463B262CA72900B373F3 /* View */,
+				E01D463A262CA71B00B373F3 /* Presenter */,
+			);
+			path = Leagues;
+			sourceTree = "<group>";
+		};
+		E01D4637262CA40000B373F3 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E01D4639262CA71000B373F3 /* Presenter */,
+				E01D4638262CA70700B373F3 /* View */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		E01D4638262CA70700B373F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E01C7DC2262CC23D00DFC7B8 /* FavoritesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E01D4639262CA71000B373F3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E01C7DC0262CC1E000DFC7B8 /* FavoritesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E01D463A262CA71B00B373F3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E01C7DBE262CC19200DFC7B8 /* LeaguesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E01D463B262CA72900B373F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E01C7DBC262CC17100DFC7B8 /* LeaguesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E01D463C262CA73500B373F3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E01D4642262CA83400B373F3 /* SportsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E01D463D262CA73F00B373F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E01D4644262CA8D600B373F3 /* SportsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E01D463E262CA74A00B373F3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E01D4648262CA91800B373F3 /* LeagueDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E01D463F262CA79900B373F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E01D4646262CA90200B373F3 /* LeagueDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E01D4640262CA7A000B373F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E01D464C262CA95100B373F3 /* TeamDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E01D4641262CA7A800B373F3 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E01D464A262CA93500B373F3 /* TeamDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +382,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E01D461C262C91CC00B373F3 /* Build configuration list for PBXNativeTarget "Olympia" */;
 			buildPhases = (
+				98A9CF8EF4B6047DD0B7A7F0 /* [CP] Check Pods Manifest.lock */,
 				E01D45EB262C91C800B373F3 /* Sources */,
 				E01D45EC262C91C800B373F3 /* Frameworks */,
 				E01D45ED262C91C800B373F3 /* Resources */,
+				7D803D6700C7A82CA90EBCB2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +401,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E01D461F262C91CC00B373F3 /* Build configuration list for PBXNativeTarget "OlympiaTests" */;
 			buildPhases = (
+				BBD510AE0FFF699CFEC5FEB5 /* [CP] Check Pods Manifest.lock */,
 				E01D4604262C91CC00B373F3 /* Sources */,
 				E01D4605262C91CC00B373F3 /* Frameworks */,
 				E01D4606262C91CC00B373F3 /* Resources */,
@@ -173,9 +420,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E01D4622262C91CC00B373F3 /* Build configuration list for PBXNativeTarget "OlympiaUITests" */;
 			buildPhases = (
+				4D4F87904BA2401E8EEEA17D /* [CP] Check Pods Manifest.lock */,
 				E01D460F262C91CC00B373F3 /* Sources */,
 				E01D4610262C91CC00B373F3 /* Frameworks */,
 				E01D4611262C91CC00B373F3 /* Resources */,
+				D49F44967CD23D0A20AF8206 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,7 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E01D4602262C91CB00B373F3 /* LaunchScreen.storyboard in Resources */,
+				E01C7DC5262CDEAA00DFC7B8 /* LaunchScreen.storyboard in Resources */,
 				E01D45FF262C91CB00B373F3 /* Assets.xcassets in Resources */,
 				E01D45FA262C91C800B373F3 /* Main.storyboard in Resources */,
 			);
@@ -257,14 +506,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D4F87904BA2401E8EEEA17D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Olympia-OlympiaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D803D6700C7A82CA90EBCB2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Olympia/Pods-Olympia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Olympia/Pods-Olympia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Olympia/Pods-Olympia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98A9CF8EF4B6047DD0B7A7F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Olympia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBD510AE0FFF699CFEC5FEB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OlympiaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D49F44967CD23D0A20AF8206 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Olympia-OlympiaUITests/Pods-Olympia-OlympiaUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Olympia-OlympiaUITests/Pods-Olympia-OlympiaUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Olympia-OlympiaUITests/Pods-Olympia-OlympiaUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E01D45EB262C91C800B373F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E01D45F7262C91C800B373F3 /* ViewController.swift in Sources */,
+				E01D462A262CA13300B373F3 /* LocalDataSource.swift in Sources */,
+				E01D464D262CA95100B373F3 /* TeamDetailsViewController.swift in Sources */,
+				E01C7DBD262CC17100DFC7B8 /* LeaguesViewController.swift in Sources */,
+				E01C7DC1262CC1E000DFC7B8 /* FavoritesPresenter.swift in Sources */,
 				E01D45F3262C91C800B373F3 /* AppDelegate.swift in Sources */,
+				E01D4649262CA91800B373F3 /* LeagueDetailsPresenter.swift in Sources */,
+				E01D4643262CA83400B373F3 /* SportsPresenter.swift in Sources */,
+				E01C7DC3262CC23D00DFC7B8 /* FavoritesViewController.swift in Sources */,
+				E01D4647262CA90200B373F3 /* LeagueDetailsViewController.swift in Sources */,
+				E01C7DBF262CC19200DFC7B8 /* LeaguesPresenter.swift in Sources */,
+				E01D462E262CA1A900B373F3 /* SportsRepo.swift in Sources */,
 				E01D45F5262C91C800B373F3 /* SceneDelegate.swift in Sources */,
+				E01D4645262CA8D600B373F3 /* SportsViewController.swift in Sources */,
+				E01D462C262CA14900B373F3 /* RemoteDataSource.swift in Sources */,
+				E01D464B262CA93500B373F3 /* TeamDetailsPresenter.swift in Sources */,
 				E01D45FD262C91C800B373F3 /* Olympia.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,14 +671,6 @@
 				E01D45F9262C91C800B373F3 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E01D4600262C91CB00B373F3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E01D4601262C91CB00B373F3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -436,6 +792,7 @@
 		};
 		E01D461D262C91CC00B373F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B83C908CFA596D24235AC478 /* Pods-Olympia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -444,7 +801,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wasiladev.Olympia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mad41.olympia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -453,6 +810,7 @@
 		};
 		E01D461E262C91CC00B373F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24D11F3F2FBE3EC996C3A9AF /* Pods-Olympia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -461,7 +819,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wasiladev.Olympia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mad41.olympia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -470,6 +828,7 @@
 		};
 		E01D4620262C91CC00B373F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9CA03AE348719CB818362AB /* Pods-OlympiaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +850,7 @@
 		};
 		E01D4621262C91CC00B373F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81154942DF00128A2C306675 /* Pods-OlympiaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +872,7 @@
 		};
 		E01D4623262C91CC00B373F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 738C88A02811AC9DF08957D8 /* Pods-Olympia-OlympiaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -531,6 +892,7 @@
 		};
 		E01D4624262C91CC00B373F3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAEDE5232E1A98A717AA421D /* Pods-Olympia-OlympiaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
