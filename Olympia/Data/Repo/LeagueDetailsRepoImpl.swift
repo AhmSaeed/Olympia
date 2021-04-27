@@ -15,6 +15,10 @@ class LeagueDetailsRepoImpl: LeagueDetailsRepo {
         self.remoteDataSource = remoteDataSource
     }
     
+    func getSports(completion: @escaping WebServiceResponse<Sports>) {
+        remoteDataSource.fetchSports(completion: completion)
+    }
+    
     func getUpcomingEvents(completion: @escaping WebServiceResponse<SportEvents>) {
         remoteDataSource.fetchUpcomingEvents(completion: completion)
     }

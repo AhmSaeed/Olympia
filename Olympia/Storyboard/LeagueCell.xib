@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="108" id="KGk-i7-Jjw" customClass="MyCell" customModule="Olympia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="486" height="108"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="486" height="108"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="roma" translatesAutoresizingMaskIntoConstraints="NO" id="7by-p4-UoS">
+                        <rect key="frame" x="10" y="25" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="g1U-Vr-iNy"/>
+                            <constraint firstAttribute="width" constant="60" id="ysC-iQ-1jB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be League Name!" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4Sw-W1-hQg">
+                        <rect key="frame" x="80" y="44" width="324" height="26.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ml1-Ix-usM">
+                        <rect key="frame" x="420" y="33" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="SlZ-Zg-JcP"/>
+                            <constraint firstAttribute="width" constant="50" id="fGa-BK-qCs"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="youtube"/>
+                        <connections>
+                            <action selector="video:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="13A-uV-xGb"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.89204691667013225" green="0.89204691667013225" blue="0.89204691667013225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="tintColor" red="0.76251323791365544" green="0.76251323791365544" blue="0.76251323791365544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="4Sw-W1-hQg" firstAttribute="leading" secondItem="7by-p4-UoS" secondAttribute="trailing" constant="10" id="11E-0H-36B"/>
+                    <constraint firstAttribute="trailing" secondItem="ml1-Ix-usM" secondAttribute="trailing" constant="16" id="1bz-Pz-LDA"/>
+                    <constraint firstItem="7by-p4-UoS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="1zv-mx-taH"/>
+                    <constraint firstItem="ml1-Ix-usM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="33" id="4iL-2v-Lq4"/>
+                    <constraint firstAttribute="bottom" secondItem="ml1-Ix-usM" secondAttribute="bottom" constant="25" id="KDL-WX-8wz"/>
+                    <constraint firstItem="7by-p4-UoS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="KVh-P3-2pW"/>
+                    <constraint firstAttribute="bottom" secondItem="7by-p4-UoS" secondAttribute="bottom" constant="23" id="R6a-qE-ihT"/>
+                    <constraint firstItem="ml1-Ix-usM" firstAttribute="leading" secondItem="4Sw-W1-hQg" secondAttribute="trailing" constant="16" id="c2B-0h-nsp"/>
+                    <constraint firstAttribute="bottom" secondItem="4Sw-W1-hQg" secondAttribute="bottom" constant="37.5" id="mfX-VI-QKf"/>
+                    <constraint firstItem="4Sw-W1-hQg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="44" id="xLm-y6-nqr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="myImage" destination="7by-p4-UoS" id="YEc-pC-CLF"/>
+                <outlet property="myLabel" destination="4Sw-W1-hQg" id="ksj-O0-Meq"/>
+                <outlet property="myvid" destination="ml1-Ix-usM" id="5P7-lT-P0H"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="-78"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="roma" width="512" height="512"/>
+        <image name="youtube" width="64" height="64"/>
+    </resources>
+</document>

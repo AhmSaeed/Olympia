@@ -12,6 +12,8 @@ protocol RemoteDataSource {
     
     typealias WebServiceResponse<T> = (T?, Error?) -> Void
     
+    func fetchSports(completion: @escaping WebServiceResponse<Sports>)
+    
     func fetchUpcomingEvents(completion: @escaping WebServiceResponse<SportEvents>)
     
     func fetchLastResults(completion: @escaping WebServiceResponse<SportEvents>)

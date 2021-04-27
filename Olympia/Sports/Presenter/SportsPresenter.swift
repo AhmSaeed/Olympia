@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol SportsPresenter {
+    
+    typealias WebServiceResponse<T> = (T?, Error?) -> Void
+    
+    func getSports(completion: @escaping WebServiceResponse<Sports>)
+    
+}
