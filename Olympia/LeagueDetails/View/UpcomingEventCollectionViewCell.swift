@@ -9,7 +9,20 @@
 import UIKit
 
 class UpcomingEventCollectionViewCell: UICollectionViewCell {
-
+    @IBOutlet weak private var _strHomeTeamLbl: UILabel!
+    @IBOutlet weak private var _strAwayTeamLbl: UILabel!
+    @IBOutlet weak private var _dateLbl: UILabel!
+    @IBOutlet weak private var _timeLbl: UILabel!
+    
+    var sportEvent: SportEvent? {
+        didSet {
+            _strHomeTeamLbl.text = sportEvent?.strHomeTeam
+            _strAwayTeamLbl.text = sportEvent?.strAwayTeam
+            _dateLbl.text = DateFormatter.getdMMMy(date: sportEvent?.dateEvent ?? "")
+            _timeLbl.text = DateFormatter.gethhmma(time:  sportEvent?.strTime ?? "")
+        }
+    }
+    
     let CORNER_RADIUS: CGFloat = 30
     
     override func awakeFromNib() {

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'Olympia' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -17,6 +17,8 @@ target 'Olympia' do
   end
 
 	pod 'SDWebImage', '~> 5.0'
-	pod 'Alamofire'
+	pod 'Alamofire', '~> 5.2'
+	pod 'RxSwift', '6.1.0'
+	pod 'RxCocoa', '6.1.0'
 
 end

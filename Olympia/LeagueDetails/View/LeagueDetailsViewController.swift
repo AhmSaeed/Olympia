@@ -7,14 +7,96 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class LeagueDetailsViewController: UITableViewController {
-    @IBOutlet weak var leagueDetailsTableView: UITableView!
+    @IBOutlet private weak var leagueDetailsTableView: UITableView!
+    @IBOutlet private weak var upcomingEventsCollectionView: UICollectionView!
+    @IBOutlet weak var LatestResultsCollectionView: UICollectionView!
+    @IBOutlet weak var teamsCollectionView: UICollectionView!
+    
+    let disposeBag = DisposeBag()
+    let upcomingEventsSubject = PublishSubject<[SportEvent]>()
+    private var upcomingEventsDriver: Driver<[SportEvent]>!
+    let latestResultsSubject = PublishSubject<[SportEvent]>()
+    private var latestResultsDriver: Driver<[SportEvent]>!
+    let teamsSubject = PublishSubject<[Team]>()
+    private var teamsDriver: Driver<[Team]>!
+    
+    lazy var leagueDetailsPresenter = LeagueDetailsPresenterImpl(leagueDetailsRepo: LeagueDetailsRepoImpl(remoteDataSource: RemoteDataSourceImpl()), leagueDetailsViewController: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        upcomingEventsDriver = upcomingEventsSubject.asDriver(onErrorJustReturn: [])
+        latestResultsDriver = latestResultsSubject.asDriver(onErrorJustReturn: [])
+        teamsDriver = teamsSubject.asDriver(onErrorJustReturn: [])
+        
         leagueDetailsTableView.dataSource = self
+        
+        setupUpcomingEventsCollectionView()
+        
+        setupLatestResultsCollectionView()
+        
+        setupTeamsColectionView()
+        
+        leagueDetailsPresenter.getUpcomingEvents()
+        leagueDetailsPresenter.getLastResults()
+        leagueDetailsPresenter.getTeamsByLeague()
+    }
+    
+    func setupUpcomingEventsCollectionView() {
+        self.upcomingEventsCollectionView.delegate = nil
+        self.upcomingEventsCollectionView.dataSource = nil
+        self.upcomingEventsCollectionView.allowsSelection = false
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        
+        flowLayout.itemSize = CGSize(width: 120, height: 120)
+        flowLayout.scrollDirection = .horizontal
+        
+        self.upcomingEventsCollectionView.setCollectionViewLayout(flowLayout, animated: true)
+        
+        upcomingEventsDriver.drive(upcomingEventsCollectionView.rx.items(cellIdentifier: "upcomingEventCell", cellType: UpcomingEventCollectionViewCell.self)){ row, item, cell in
+            cell.sportEvent = item
+        }.disposed(by: disposeBag)
+    }
+    
+    func setupLatestResultsCollectionView() {
+        self.LatestResultsCollectionView.delegate = nil
+        self.LatestResultsCollectionView.dataSource = nil
+        self.LatestResultsCollectionView.allowsSelection = false
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        
+        let side = (tableView.frame.width - 50) / 2
+        
+        flowLayout.itemSize = CGSize(width: side, height: side)
+        
+        self.LatestResultsCollectionView.setCollectionViewLayout(flowLayout, animated: true)
+        
+        latestResultsDriver.drive(LatestResultsCollectionView.rx.items(cellIdentifier: "latestResultCell", cellType: LatestResultCollectionViewCell.self)){ row, item, cell in
+            cell.sportEvent = item
+        }.disposed(by: disposeBag)
+    }
+    
+    func setupTeamsColectionView() {
+        self.teamsCollectionView.delegate = nil
+        self.teamsCollectionView.dataSource = nil
+        self.teamsCollectionView.allowsSelection = false
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        
+        flowLayout.itemSize = CGSize(width: 50, height: 50)
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 30
+        
+        self.teamsCollectionView.setCollectionViewLayout(flowLayout, animated: true)
+        
+        teamsDriver.drive(teamsCollectionView.rx.items(cellIdentifier: "teamCell", cellType: TeamCollectionViewCell.self)){ row, item, cell in
+            cell.team = item
+        }
     }
     
 }
@@ -33,8 +115,8 @@ extension LeagueDetailsViewController {
         if indexPath.row == 0 {
             return 190
         } else if indexPath.row == 1 {
-            let side = (tableView.frame.width - 65) / 2
-            return calcColectionViewHeight(noOfItems: 20, noOfRow: 2, cellHeight: side, viewTopOffset: 50, viewBottomOffset: 20, lineSpacing: 20)
+            let side = (tableView.frame.width - 50) / 2
+            return calcColectionViewHeight(noOfItems: 15, noOfRow: 2, cellHeight: side, viewTopOffset: 50, viewBottomOffset: 20, lineSpacing: 10)
         } else {
             return 120
         }
