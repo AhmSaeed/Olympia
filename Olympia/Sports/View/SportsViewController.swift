@@ -14,6 +14,7 @@ class SportsViewController: UICollectionViewController ,UICollectionViewDelegate
 
     var sports: [Sport] = []
     let sportPresenter = SportsRepoImpl(remoteDataSource: RemoteDataSourceImpl())
+    var selectedSport: Sport?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +25,22 @@ class SportsViewController: UICollectionViewController ,UICollectionViewDelegate
         
         sportPresenter.getSports { result, error in
             self.sports = result?.sports ?? []
-                  self.collectionView.reloadData()
+            self.collectionView.reloadData()
         }
-      
-            
-       
     }
 
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if(segue.identifier == "leagueDetails"){
-//            let viewsport = segue.destination as! LeaguesViewController
-//         //   viewsport =mysport[collectionView.indexPathsForSelectedItems[].row].strSport
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "goToLeaguesVC"){
+            let leaguesVC = segue.destination as! LeaguesViewController
+            
+            leaguesVC.sportName = selectedSport?.strSport
+        }
+    }
     
 
     // MARK: UICollectionViewDataSource
@@ -61,8 +60,7 @@ class SportsViewController: UICollectionViewController ,UICollectionViewDelegate
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sportCell", for: indexPath)as! SportCollectionViewCell
         
         cell.sport = sports[indexPath.row]
-        
-        // Configure the cell
+        cell.delegate = self
     
         return cell
     }
@@ -78,4 +76,10 @@ class SportsViewController: UICollectionViewController ,UICollectionViewDelegate
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20);
     }
 
+}
+
+extension SportsViewController: SportCollectionViewCellDelegate {
+    func didTapLeagueBtn(with sport: Sport) {
+        selectedSport = sport
+    }
 }

@@ -1,65 +1,53 @@
 //
-//  AllLeaguesViewController.swift
+//  FavoritesViewController.swift
 //  Olympia
 //
-//  Created by Doaa on 4/21/21.
+//  Created by Ahmed Morsy on 4/18/21.
 //  Copyright © 2021 wasiladev. All rights reserved.
 //
 
 import UIKit
+import CoreData
 import SDWebImage
 
-class LeaguesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavouriteOperationsDelegate {
+class FavouritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavouriteOperationsDelegate {
     var tapGestureRecognizer :UITapGestureRecognizer?
-    @IBOutlet weak var leaguesTableView: UITableView!
-    var sportName: String?
-    var isFavouriteTab : Bool?
-    var leagues: [League]?
+    @IBOutlet weak var favouritesTableView: UITableView!
     
-    lazy var leaguePresenter = LeaguesPresenterImpl(leaguesRepo: LeaguesRepoImpl(remoteDataSource: RemoteDataSourceImpl(), localDataSource: LocalDataSourceImpl()), leaguesViewController: self)
+    var leagues: [NSManagedObject]?
+    private var selectedRow: Int!
+    private var selectedLeague: League!
     
-    func displayLeagues(LeaguesArray array: [League]) {
-        leagues?.removeAll()
+    lazy var favouritesPresenter = FavouritesPresenterImpl(favouritesRepo: FavouritesRepoImpl(localDataSource: LocalDataSourceImpl()), favouritesViewController: self)
+    
+    func displayLeagues(LeaguesArray array: [NSManagedObject]) {
         leagues = array
-        leaguesTableView.reloadData()
+        favouritesTableView.reloadData()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        if let sportName = sportName {
-            leaguePresenter.getLeagues(by: sportName)
-        }
+        favouritesPresenter.getFavouriteLeagues()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        leaguesTableView.delegate = self
-        leaguesTableView.dataSource = self
+        favouritesTableView.delegate = self
+        favouritesTableView.dataSource = self
     }
     
     func addFavouriteLeague() {
-        guard let selectedRow = leaguesTableView.indexPathForSelectedRow?.row else { return }
-        guard let league = leagues?[selectedRow] else { return }
-        leaguePresenter.addFavouriteLeague(league: league)
+        favouritesPresenter.addFavouriteLeague(league: selectedLeague)
+        favouritesPresenter.getFavouriteLeagues()
     }
     
     func removeFavouriteLeague() {
-        guard let selectedRow = leaguesTableView.indexPathForSelectedRow?.row else { return }
-        guard let league = leagues?[selectedRow] else { return }
-        leaguePresenter.removeFavouriteLeague(league: league)
+        guard let leagueManagedObject = leagues?[selectedRow] else { return }
+        let league = Mapper.nsManagedObjectToLeague(league: leagueManagedObject)
+        favouritesPresenter.removeFavouriteLeague(league: league)
+        favouritesPresenter.getFavouriteLeagues()
     }
     
-    func showNoInternetAlert() {
-        UIHelper.showAlert(at: self, message: "No internet connection!")
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Table view
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -74,10 +62,10 @@ class LeaguesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = Bundle.main.loadNibNamed("LeagueCell", owner: self, options: nil)?.first as! LeagueTableViewCell
-        if (leagues?.count) != nil{
-            cell.league = leagues?[indexPath.row]
+        if let leagueManagedObject = leagues?[indexPath.row] {
+            print(leagueManagedObject)
+            cell.league = Mapper.nsManagedObjectToLeague(league: leagueManagedObject)
             NotificationCenter.default.addObserver(self, selector: #selector(displayNoLink), name: NSNotification.Name("displayNoLink"), object: nil)
         }
         
@@ -85,9 +73,14 @@ class LeaguesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRow = indexPath.row
+        if let leagueManagedObject = leagues?[indexPath.row] {
+            selectedLeague = Mapper.nsManagedObjectToLeague(league: leagueManagedObject)
+        }
+        
         guard let leaguesDetailsViewController = self.storyboard?.instantiateViewController(identifier: "LeagueDetailsViewController") else {return}
         (leaguesDetailsViewController as! LeagueDetailsViewController).favouriteOperationsDelegate = self
-        (leaguesDetailsViewController as! LeagueDetailsViewController).selectedLeague = leagues?[indexPath.row]
+        (leaguesDetailsViewController as! LeagueDetailsViewController).selectedLeague = selectedLeague
         self.navigationController?.present(leaguesDetailsViewController as! LeagueDetailsViewController, animated: true, completion: nil)
     }
     
@@ -122,4 +115,5 @@ class LeaguesViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
 }
+
 

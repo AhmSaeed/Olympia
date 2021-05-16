@@ -9,9 +9,15 @@
 import UIKit
 import SDWebImage
 
+protocol SportCollectionViewCellDelegate: AnyObject {
+    func didTapLeagueBtn(with sport: Sport)
+}
+
 class SportCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak private var _strSportLbl: UILabel!
     @IBOutlet weak private var _strSportThumbImg: UIImageView!
+    
+    weak var delegate: SportCollectionViewCellDelegate?
     
     
     var sport: Sport? {
@@ -22,6 +28,8 @@ class SportCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func onLeagueBtnClick(_ sender: UIButton) {
+        guard let sport = sport else {return}
+        delegate?.didTapLeagueBtn(with: sport)
     }
     
     

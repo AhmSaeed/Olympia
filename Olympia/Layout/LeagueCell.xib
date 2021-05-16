@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="108" id="KGk-i7-Jjw" customClass="MyCell" customModule="Olympia" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="108" id="KGk-i7-Jjw" customClass="LeagueTableViewCell" customModule="Olympia" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="486" height="108"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -17,39 +17,38 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="roma" translatesAutoresizingMaskIntoConstraints="NO" id="7by-p4-UoS">
-                        <rect key="frame" x="10" y="25" width="60" height="60"/>
+                        <rect key="frame" x="30" y="25" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="g1U-Vr-iNy"/>
                             <constraint firstAttribute="width" constant="60" id="ysC-iQ-1jB"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be League Name!" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4Sw-W1-hQg">
-                        <rect key="frame" x="80" y="44" width="324" height="26.5"/>
+                        <rect key="frame" x="100" y="44" width="300" height="26.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ml1-Ix-usM">
-                        <rect key="frame" x="420" y="33" width="50" height="50"/>
+                        <rect key="frame" x="416" y="39" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="SlZ-Zg-JcP"/>
-                            <constraint firstAttribute="width" constant="50" id="fGa-BK-qCs"/>
+                            <constraint firstAttribute="height" constant="30" id="SlZ-Zg-JcP"/>
+                            <constraint firstAttribute="width" constant="30" id="fGa-BK-qCs"/>
                         </constraints>
                         <state key="normal" backgroundImage="youtube"/>
                         <connections>
-                            <action selector="video:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="13A-uV-xGb"/>
+                            <action selector="onVideoIconClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XYf-Rh-PHy"/>
                         </connections>
                     </button>
                 </subviews>
-                <color key="backgroundColor" red="0.89204691667013225" green="0.89204691667013225" blue="0.89204691667013225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <color key="tintColor" red="0.76251323791365544" green="0.76251323791365544" blue="0.76251323791365544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="4Sw-W1-hQg" firstAttribute="leading" secondItem="7by-p4-UoS" secondAttribute="trailing" constant="10" id="11E-0H-36B"/>
-                    <constraint firstAttribute="trailing" secondItem="ml1-Ix-usM" secondAttribute="trailing" constant="16" id="1bz-Pz-LDA"/>
+                    <constraint firstAttribute="trailing" secondItem="ml1-Ix-usM" secondAttribute="trailing" constant="40" id="1bz-Pz-LDA"/>
                     <constraint firstItem="7by-p4-UoS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="1zv-mx-taH"/>
-                    <constraint firstItem="ml1-Ix-usM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="33" id="4iL-2v-Lq4"/>
-                    <constraint firstAttribute="bottom" secondItem="ml1-Ix-usM" secondAttribute="bottom" constant="25" id="KDL-WX-8wz"/>
-                    <constraint firstItem="7by-p4-UoS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="KVh-P3-2pW"/>
+                    <constraint firstItem="7by-p4-UoS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="KVh-P3-2pW"/>
+                    <constraint firstItem="ml1-Ix-usM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PBL-u4-bJm"/>
                     <constraint firstAttribute="bottom" secondItem="7by-p4-UoS" secondAttribute="bottom" constant="23" id="R6a-qE-ihT"/>
                     <constraint firstItem="ml1-Ix-usM" firstAttribute="leading" secondItem="4Sw-W1-hQg" secondAttribute="trailing" constant="16" id="c2B-0h-nsp"/>
                     <constraint firstAttribute="bottom" secondItem="4Sw-W1-hQg" secondAttribute="bottom" constant="37.5" id="mfX-VI-QKf"/>
@@ -58,9 +57,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="myImage" destination="7by-p4-UoS" id="YEc-pC-CLF"/>
-                <outlet property="myLabel" destination="4Sw-W1-hQg" id="ksj-O0-Meq"/>
-                <outlet property="myvid" destination="ml1-Ix-usM" id="5P7-lT-P0H"/>
+                <outlet property="_strBadgeImg" destination="7by-p4-UoS" id="McK-tV-kBL"/>
+                <outlet property="_strLeagueLbl" destination="4Sw-W1-hQg" id="842-2u-LTe"/>
+                <outlet property="_strYoutubeBtn" destination="ml1-Ix-usM" id="vDW-V9-kp5"/>
             </connections>
             <point key="canvasLocation" x="157" y="-78"/>
         </tableViewCell>

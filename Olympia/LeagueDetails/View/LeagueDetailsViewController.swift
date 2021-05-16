@@ -15,6 +15,7 @@ class LeagueDetailsViewController: UITableViewController {
     @IBOutlet private weak var upcomingEventsCollectionView: UICollectionView!
     @IBOutlet weak var LatestResultsCollectionView: UICollectionView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
+    @IBOutlet weak var heartBtn: UIButton!
     
     let disposeBag = DisposeBag()
     let upcomingEventsSubject = PublishSubject<[SportEvent]>()
@@ -24,7 +25,11 @@ class LeagueDetailsViewController: UITableViewController {
     let teamsSubject = PublishSubject<[Team]>()
     private var teamsDriver: Driver<[Team]>!
     
-    lazy var leagueDetailsPresenter = LeagueDetailsPresenterImpl(leagueDetailsRepo: LeagueDetailsRepoImpl(remoteDataSource: RemoteDataSourceImpl()), leagueDetailsViewController: self)
+    lazy var leagueDetailsPresenter = LeagueDetailsPresenterImpl(leagueDetailsRepo: LeagueDetailsRepoImpl(remoteDataSource: RemoteDataSourceImpl(), localDataSource: LocalDataSourceImpl()), leagueDetailsViewController: self)
+    
+    var favouriteOperationsDelegate: FavouriteOperationsDelegate!
+    var selectedLeague: League!
+    var selectedTeam: Team!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +37,10 @@ class LeagueDetailsViewController: UITableViewController {
         upcomingEventsDriver = upcomingEventsSubject.asDriver(onErrorJustReturn: [])
         latestResultsDriver = latestResultsSubject.asDriver(onErrorJustReturn: [])
         teamsDriver = teamsSubject.asDriver(onErrorJustReturn: [])
+        
+        configureHeartIcon()
+        
+        checkIsLeagueInFavourites()
         
         leagueDetailsTableView.dataSource = self
         
@@ -41,9 +50,39 @@ class LeagueDetailsViewController: UITableViewController {
         
         setupTeamsColectionView()
         
-        leagueDetailsPresenter.getUpcomingEvents()
-        leagueDetailsPresenter.getLastResults()
-        leagueDetailsPresenter.getTeamsByLeague()
+        if let leagueId = selectedLeague.idLeague {
+            leagueDetailsPresenter.getLastResults(by: leagueId)
+        }
+        
+        if let leagueName = selectedLeague.strLeague {
+            leagueDetailsPresenter.getTeamsByLeague(by: leagueName)
+        }
+    }
+    
+    @IBAction func onHeartIconClick(_ sender: UIButton) {
+        if heartBtn.isSelected {
+            favouriteOperationsDelegate.removeFavouriteLeague()
+        } else {
+            favouriteOperationsDelegate.addFavouriteLeague()
+        }
+        heartBtn.isSelected.toggle()
+    }
+    
+    func configureHeartIcon() {
+        let imageIconSelected = UIImage(systemName: "heart.fill")?.withTintColor(.red, renderingMode: .alwaysOriginal)
+        let imageIcon = UIImage(systemName: "heart.fill")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+        heartBtn.setImage(imageIconSelected, for: .selected)
+        heartBtn.setImage(imageIcon, for: .normal)
+    }
+    
+    func checkIsLeagueInFavourites() {
+        if leagueDetailsPresenter.isExistInFavourites(league: selectedLeague) {
+            heartBtn.isSelected.toggle()
+        }
+    }
+    
+    func showNoInternetAlert() {
+        UIHelper.showAlert(at: self, message: "No internet connection!")
     }
     
     func setupUpcomingEventsCollectionView() {
@@ -84,7 +123,7 @@ class LeagueDetailsViewController: UITableViewController {
     func setupTeamsColectionView() {
         self.teamsCollectionView.delegate = nil
         self.teamsCollectionView.dataSource = nil
-        self.teamsCollectionView.allowsSelection = false
+        self.teamsCollectionView.allowsSelection = true
         
         let flowLayout = UICollectionViewFlowLayout()
         
@@ -97,8 +136,23 @@ class LeagueDetailsViewController: UITableViewController {
         teamsDriver.drive(teamsCollectionView.rx.items(cellIdentifier: "teamCell", cellType: TeamCollectionViewCell.self)){ row, item, cell in
             cell.team = item
         }
+        
+        teamsCollectionView.rx.modelSelected(Team.self).asDriver().drive(onNext: { [weak self] team in
+            print("Selected team in model selected: \(team)")
+            self?.selectedTeam = team
+            self?.performSegue(withIdentifier: "goToTeamVC", sender: self)
+        }).disposed(by: disposeBag)
     }
     
+}
+
+extension LeagueDetailsViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let teamDetailsViewController = segue.destination as! TeamDetailsViewController
+        
+        teamDetailsViewController.selectedTeam = selectedTeam
+    }
 }
 
 extension LeagueDetailsViewController {

@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import CoreData
+
+protocol LocalDataSource {
+    var favourites: [NSManagedObject] {get}
+    
+    func getFavouriteLeagues() -> [NSManagedObject]
+    
+    func addFavouriteLeague(league: League)
+    
+    func removeFavouriteLeague(league: League)
+    
+    func isExistInFavourites(league: League) -> Bool
+}

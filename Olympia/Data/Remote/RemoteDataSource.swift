@@ -14,9 +14,11 @@ protocol RemoteDataSource {
     
     func fetchSports(completion: @escaping WebServiceResponse<Sports>)
     
-    func fetchUpcomingEvents(completion: @escaping WebServiceResponse<SportEvents>)
+    func fetchLeagues(by sportName: String, completion: @escaping WebServiceResponse<Leagues>)
     
-    func fetchLastResults(completion: @escaping WebServiceResponse<SportEvents>)
+    func fetchUpcomingEvents(by leagueId: String, and round: String, completion: @escaping WebServiceResponse<SportEvents>)
     
-    func fetchTeamsByLeague(completion: @escaping WebServiceResponse<Teams>)
+    func fetchLastResults(by leagueId: String, completion: @escaping WebServiceResponse<SportEvents>)
+    
+    func fetchTeams(by leagueName: String, completion: @escaping WebServiceResponse<Teams>)
 }

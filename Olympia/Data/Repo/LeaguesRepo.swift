@@ -1,5 +1,5 @@
 //
-//  LeaguePresenter.swift
+//  LeaguesRepo.swift
 //  Olympia
 //
 //  Created by Ahmed Morsy on 4/27/21.
@@ -8,9 +8,13 @@
 
 import Foundation
 
-protocol LeaguesPresenter {
+import Foundation
+
+protocol LeaguesRepo {
     
-    func getLeagues(by sportName: String)
+    typealias WebServiceResponse<T> = (T?, Error?) -> Void
+    
+    func getLeagues(sportName: String, completion: @escaping WebServiceResponse<Leagues>)
     
     func addFavouriteLeague(league: League)
     

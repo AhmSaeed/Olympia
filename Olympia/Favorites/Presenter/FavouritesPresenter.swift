@@ -1,16 +1,16 @@
 //
-//  LeaguePresenter.swift
+//  FavouritesPresenter.swift
 //  Olympia
 //
-//  Created by Ahmed Morsy on 4/27/21.
+//  Created by Ahmed Morsy on 4/18/21.
 //  Copyright © 2021 wasiladev. All rights reserved.
 //
 
 import Foundation
 
-protocol LeaguesPresenter {
+protocol FavouritesPresenter {
     
-    func getLeagues(by sportName: String)
+    func getFavouriteLeagues()
     
     func addFavouriteLeague(league: League)
     

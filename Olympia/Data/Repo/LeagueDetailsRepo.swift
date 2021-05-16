@@ -6,16 +6,18 @@
 //  Copyright © 2021 wasiladev. All rights reserved.
 //
 
-import Foundation
+import CoreData
 
 protocol LeagueDetailsRepo {
     
     typealias WebServiceResponse<T> = (T?, Error?) -> Void
     
-    func getUpcomingEvents(completion: @escaping WebServiceResponse<SportEvents>)
+    func getUpcomingEvents(leagueId: String, round: String, completion: @escaping WebServiceResponse<SportEvents>)
     
-    func getLastResults(completion: @escaping WebServiceResponse<SportEvents>)
+    func getLastResults(leagueId: String, completion: @escaping WebServiceResponse<SportEvents>)
     
-    func getTeamsByLeague(completion: @escaping WebServiceResponse<Teams>)
+    func getTeamsByLeague(leagueName: String, completion: @escaping WebServiceResponse<Teams>)
+    
+    func isExistInFavourites(league: League) -> Bool
     
 }

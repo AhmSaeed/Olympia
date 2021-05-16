@@ -6,7 +6,7 @@
 //  Copyright © 2021 wasiladev. All rights reserved.
 //
 
-import Foundation
+import CoreData
 
 class LeagueDetailsPresenterImpl: LeagueDetailsPresenter {
     
@@ -18,24 +18,45 @@ class LeagueDetailsPresenterImpl: LeagueDetailsPresenter {
         self.leagueDetailsViewController = leagueDetailsViewController
     }
     
-    func getUpcomingEvents() {
-        leagueDetailsRepo.getUpcomingEvents (completion: { [weak self] result, error  in
-            guard let data = result else {return}
-            self?.leagueDetailsViewController?.upcomingEventsSubject.onNext(data.events ?? [])
-        })
+    func getUpcomingEvents(by leagueId: String, and round: String) {
+        if(Reachability.isConnectedToNetwork()) {
+            leagueDetailsRepo.getUpcomingEvents(leagueId: leagueId, round: round, completion: { [weak self] result, error  in
+                guard let data = result else {return}
+                self?.leagueDetailsViewController?.upcomingEventsSubject.onNext(data.events ?? [])
+            })
+        } else {
+            leagueDetailsViewController?.showNoInternetAlert()
+        }
+        
     }
     
-    func getLastResults() {
-        leagueDetailsRepo.getLastResults (completion: { [weak self] result, error  in
-            guard let data = result else {return}
-            self?.leagueDetailsViewController?.latestResultsSubject.onNext(data.events ?? [])
-        })
+    func getLastResults(by leagueId: String) {
+        if(Reachability.isConnectedToNetwork()) {
+            leagueDetailsRepo.getLastResults(leagueId: leagueId, completion: { [weak self] result, error  in
+                guard let data = result else {return}
+                self?.leagueDetailsViewController?.latestResultsSubject.onNext(data.events ?? [])
+                guard var roundId = data.events?[0].intRound else { return }
+                let intRoundId = Int(roundId)! + 1
+                roundId = String(intRoundId)
+                self?.getUpcomingEvents(by: leagueId, and: roundId)
+            })
+        } else {
+            leagueDetailsViewController?.showNoInternetAlert()
+        }
     }
     
-    func getTeamsByLeague() {
-        leagueDetailsRepo.getTeamsByLeague(completion: { [weak self] result, error in
-            guard let data = result else {return}
-            self?.leagueDetailsViewController?.teamsSubject.onNext(data.teams ?? [])
-        })
+    func getTeamsByLeague(by leagueName: String) {
+        if(Reachability.isConnectedToNetwork()) {
+            leagueDetailsRepo.getTeamsByLeague(leagueName: leagueName, completion: { [weak self] result, error in
+                guard let data = result else {return}
+                self?.leagueDetailsViewController?.teamsSubject.onNext(data.teams ?? [])
+            })
+        } else {
+            leagueDetailsViewController?.showNoInternetAlert()
+        }
+    }
+    
+    func isExistInFavourites(league: League) -> Bool {
+        leagueDetailsRepo.isExistInFavourites(league: league)
     }
 }
